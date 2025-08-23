@@ -6,6 +6,7 @@
 
     const [input, setInput] = useState('');
 
+    //función para agregar tarea
     const agregarTarea = () => {
       if (input.trim()) {
         setTareas([
@@ -14,6 +15,17 @@
         ]);
         setInput('');
       }
+    };
+
+    //función para editar tarea
+    const editarTarea = () => {
+
+        setTareas([
+          ...tareas,
+          { id: Date.now(), text: input.trim(), completed: false }
+        ]);
+        setInput('');
+      
     };
 
     const toggleComplete = (id) => {
